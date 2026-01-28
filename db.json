@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Bài viết mẫu",
+      "views": 100,
+      "isDeleted": false
+    },
+    {
+      "id": "2",
+      "title": "1",
+      "views": null,
+      "isDeleted": true
+    },
+    {
+      "id": "3",
+      "title": "Lê Tuấn Anh ",
+      "views": 4,
+      "isDeleted": true
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": "1",
+      "body": "Bình luận đầu tiên"
+    },
+    {
+      "id": "2",
+      "postId": "2",
+      "body": "LTA"
+    }
+  ]
+}

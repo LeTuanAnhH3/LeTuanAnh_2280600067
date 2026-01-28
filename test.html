@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Dữ Liệu Ngày 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --danger: #ef4444;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container { width: 100%; max-width: 900px; }
+        h2 { border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 25px; }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f1f5f9; color: #64748b; font-size: 12px; text-transform: uppercase; padding: 12px; text-align: left; }
+        td { padding: 16px 12px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+
+        /* Style xoá mềm */
+        .row-deleted { text-decoration: line-through; color: #94a3b8; background-color: #fcfcfc; }
+        .status-tag { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .tag-active { background: #dcfce7; color: #166534; }
+        .tag-deleted { background: #fee2e2; color: #991b1b; }
+
+        .form-group { display: flex; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+        input { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; }
+        input:focus { border-color: var(--primary); }
+
+        button { 
+            padding: 10px 16px; border-radius: 8px; border: none; font-weight: 500; cursor: pointer; transition: 0.2s; 
+        }
+        .btn-add { background: var(--primary); color: white; }
+        .btn-del { background: #fee2e2; color: var(--danger); }
+        .btn-del:hover { background: var(--danger); color: white; }
+        button:disabled { background: #e2e8f0; color: #94a3b8; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Quản Lý Bài Viết</h2>
+    <div class="card">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Trạng thái</th>
+                    <th>Tiêu đề</th>
+                    <th>Lượt xem</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="body_posts"></tbody>
+        </table>
+
+        <div class="form-group">
+            <input type="text" id="post_title" placeholder="Tiêu đề bài viết...">
+            <input type="number" id="post_views" placeholder="Lượt xem">
+            <button class="btn-add" onclick="savePost()">Thêm Bài Viết</button>
+        </div>
+    </div>
+
+    <h2>Quản Lý Bình Luận</h2>
+    <div class="card">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Post ID</th>
+                    <th>Nội dung</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="body_comments"></tbody>
+        </table>
+        <div class="form-group">
+            <input type="text" id="com_postId" placeholder="ID Post">
+            <input type="text" id="com_body" placeholder="Nội dung bình luận...">
+            <button class="btn-add" onclick="saveComment()">Gửi Bình Luận</button>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
